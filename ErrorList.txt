@@ -1,0 +1,21 @@
+20
+0 lipsa buss lista
+1 lipsa fisier
+2 lipsa tabel
+3 eroare , nu s-a putut crea fisierul
+4 eroare tabel , nu se poate crea
+5 eroare database , nu s-a putut incarca
+6 lipsa database
+7 exista deja acest tabel
+8 exista deja baza de date
+9 tabel are deja structura
+10 structura tabel nu exista
+11 eroare structura tabel , nu exista acest datatype
+12 nu exista destule destule nume pentru coloane
+13 nu exista structura tabel
+14 structura tabel exista deja
+15 structura noua are noi datatype
+16 lipsa subtabel
+17 lipsa rand
+18 exista deja rand
+19 comanda gresita
