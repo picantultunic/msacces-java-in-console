@@ -39,7 +39,7 @@ public class main {
 		//
 		if(seCreaza){
 			db.addTabel("cont");
-			String[] str={"int","String","boolean"},nmstr={"cnp","serie","Sex"};
+			String[] str={"Integer","String","Boolean"},nmstr={"cnp","serie","Sex"};
 			db.seteazaStructuraTabel("cont", str,nmstr);
 			db.addTabel("persoane");
 			String[] strr={"String","String"},nmstrr={"nume","prenume"};

@@ -165,6 +165,12 @@ public class Tabel {
 			data[i]=new String(structura.numeColoana.get(i));
 		return data;
 	}
+	public String[]returnareStructuraDatatype(){
+		String[] data=new String[structura.numeColoana.size()];
+		for(int i=0;i<data.length;i++)
+			data[i]=new String(structura.coloane.get(i).toString());
+		return data;
+	}
 	public void inchuieTabel(){
 		//asta ii daca vrei sa faci un tabel de tip lista si sa 
 		//poti avea casute de unde sa selectezi
@@ -175,6 +181,32 @@ public class Tabel {
 			this.locktab=true;
 	}
 	public void addRand(Casuta[]casute){
+		// se poate sa fie un bug;
+		//trebuie sa verifice daca sunt cum trebuie datatype
+		if(structura==null){
+			buss.eroare(13);
+			return;
+		}
+		if(subtabel.size()==0){
+			buss.eroare(16);
+			return;
+		}
+		
+		if(casute.length>structura.lenght){
+			Casuta[] aux=new Casuta[structura.lenght];
+			for(int i=0;i<structura.lenght;i++)
+				aux[i]=casute[i];
+			casute=aux;
+		}
+		verificare.transformareDate(structura, casute);
+		if(bussGlobal.hasError())
+			return;
+		
+		if(subtabel.get(subtabel.size()-1).rand.size()>=marimeSubtabel)
+			subtabel.add(new Subtabel());
+		subtabel.get(subtabel.size()-1).rand.add(new Rand(casute));
+	}
+	public void addRandfortat(Casuta[]casute){
 		// se poate sa fie un bug;
 		//trebuie sa verifice daca sunt cum trebuie datatype
 		if(structura==null){

@@ -110,32 +110,10 @@ public class Database {
 			if (listatabele.get(i).numeTabel.equals(nume)) {
 				listatabele.get(i).addRand(v);
 			}
-		/**
-		 * depinde daca vrei sa adaugi un rand intreg dar sa luam pe 2 cazuri
-		 * 
-		 * caz 1 , introduc efectiv datele de rand
-		 * 1.verific cate date sunt , daca au marimea potrivita si se potrivesc
-		 * datatypeul atunci trec mai departe
-		 * 2.te duci la finalul tabelului si creezi un rand nou iar acolo o sa introduci
-		 * datele
-		 * inauntrul tabelului o sa se actualizeze el dar fiecare rand o sa trebuiasca
-		 * sa aibe cate un id orice
-		 * ar fi deoarece o sa fie o cheie pentru ea , nu prea cred ca o sa trec de int
-		 * limit dar nu
-		 * o sa fie greu sa ii dau upgrade
-		 * caz 2 , introduc datele pe casuta
-		 * o sa fie pe baza de coordonate si o sa se refere la ultimul rand , randul ar
-		 * trebuii sa aibe si un bool
-		 * spune ca randul este plin , aceasta informatie se bazeaza ca casuta nu este
-		 * nula
-		 * 1.verifica daca este posibil sa te duci la casuta respectiva prin lenght of
-		 * struct
-		 * 2.dute la ultimul rand si introduce la casuta respectiva acea informatie
-		 */
 	}
 
 	public void adaugaDateTabel(int i, Casuta[] v) {
-		if (i >= listatabele.size()) {
+		if (i >= listatabele.size()||i<0) {
 			buss.eroare(2);
 			return;
 		}
@@ -157,7 +135,7 @@ public class Database {
 	}
 
 	public void modificaDateTabel(int i, int k, Casuta[] c) {
-		if (i >= listatabele.size()) {
+		if (i >= listatabele.size()||i<0) {
 			buss.eroare(2);
 			return;
 		}
@@ -191,7 +169,13 @@ public class Database {
 		 */
 		return null;
 	}
-
+	public Casuta[] returneazaDateTabel(int i, int k) {
+		if (i >= listatabele.size()||i<0) {
+			buss.eroare(2);
+			return null;
+		}
+		return listatabele.get(i).returnRand(k);
+	}
 	public void seteazaStructuraTabel(String nume, String[] struct, String[] numeColoana) {
 		for (int i = 0; i < listatabele.size(); i++)
 			if (listatabele.get(i).numeTabel.equals(nume)) {

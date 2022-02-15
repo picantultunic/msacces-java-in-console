@@ -195,6 +195,7 @@ public class creareFisiere {
                         cas[a].set(rand[j]);
                         db.adaugaDateTabel(index, cas);  
                     }
+                    db.nrtabele/=2;
                 }
 
                 fisier.close();

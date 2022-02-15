@@ -1,4 +1,4 @@
-20
+22
 0 lipsa buss lista
 1 lipsa fisier
 2 lipsa tabel
@@ -19,3 +19,5 @@
 17 lipsa rand
 18 exista deja rand
 19 comanda gresita
+20 datele de intrare nu sunt bune
+21 nu se pot transforma datele

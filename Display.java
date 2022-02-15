@@ -118,8 +118,21 @@ public class Display {
 					return;
 				}
 				zoomFereastra(x, y);
-			}
+			}else if(aux.equals("randAprobat")){//proba , numai debug
+				int x;
+				try {
+					x = Integer.parseInt(parametri);
+				} catch (Exception e) {
+					buss.eroare(19);
+					return;
+				}
+				System.out.println(
+					verificare.aprobRand(
+						db.listatabele.get(tabelSelectat).structura, 
+						db.returneazaDateTabel(tabelSelectat, x)));
 
+				input.nextLine();
+			}
 		} else if (parantezaDreapa == -1) {
 			// nu au nevoie de comanda
 			aux = comanda;
@@ -142,6 +155,7 @@ public class Display {
 					//doar le memoreaza , nu le si prelucreaza
 					data[i].set(tastatura);
 				}
+
 				db.adaugaDateTabel(tabelSelectat, data);
 			} else if (aux.equals("modificaStructNume")) {
 				String[] numeColoana = db.listatabele.get(tabelSelectat).returnareStructura();

@@ -27,7 +27,17 @@ public class bussGlobal {
 
     static ArrayList<ErrorType> errorList;
 
-    public void eroare(int cod) {
+    public static void eroare(int cod) {
+        for (int i = 0; i < errorList.size(); i++)
+            if (errorList.get(i).errorCode == cod) {// exista posibilitatea ca sa nu fie in ordine
+                bussGlobal.cod = errorList.get(i).errorCode;
+                bussGlobal.data = errorList.get(i).errorName;
+                eroareDetectata = true;
+                multipleErrorCode.add(bussGlobal.cod);
+                break;
+            }
+    }
+    public void eroareSatic(int cod) {
         for (int i = 0; i < errorList.size(); i++)
             if (errorList.get(i).errorCode == cod) {// exista posibilitatea ca sa nu fie in ordine
                 bussGlobal.cod = errorList.get(i).errorCode;
